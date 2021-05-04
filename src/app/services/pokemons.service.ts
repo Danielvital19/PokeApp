@@ -11,5 +11,9 @@ export class PokemonsService {
   getPokemonsList(){
     return this.http.get<any>('https://pokeapi.co/api/v2/pokemon' )
   }
+
+  getPokemonDetails(name: string){
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${name}` )
+  }
 }
   

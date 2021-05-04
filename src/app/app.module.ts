@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ElementDetailsComponent } from './components/element-details/element-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule } from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatToolbarModule } from '@angular/material/toolbar';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

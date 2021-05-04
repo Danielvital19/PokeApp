@@ -5,7 +5,7 @@ import { ElementDetailsComponent } from './components/element-details/element-de
 
 const routes: Routes = [
   {path: '', component: CatalogComponent},
-  {path: 'elementDetails/:id', component: ElementDetailsComponent},
+  {path: 'elementDetails/:name', component: ElementDetailsComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

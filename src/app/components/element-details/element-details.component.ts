@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
   selector: 'app-element-details',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElementDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pokemonSvc: PokemonsService, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe(
+      params => {
+        this.getPokemonDetails(params['name'])
+       }
+    )
+   }
 
   ngOnInit(): void {
+  }
+
+  getPokemonDetails(name: string){
+    this.pokemonSvc.getPokemonDetails(name).subscribe(
+      (result: any) => {
+        console.log(result)
+      },
+      (error: any) => {}
+    )
   }
 
 }

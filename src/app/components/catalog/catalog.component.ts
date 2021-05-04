@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-catalog',
@@ -8,7 +10,9 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
 })
 export class CatalogComponent implements OnInit {
 
-  constructor(private pokemonSvc : PokemonsService) { }
+  pokemons: any[] = [];
+
+  constructor(private pokemonSvc : PokemonsService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPokemonsList();
@@ -17,13 +21,23 @@ export class CatalogComponent implements OnInit {
   getPokemonsList(){
     this.pokemonSvc.getPokemonsList().subscribe(
       res => {
-        console.log(res.results)
+        res.results.forEach((element: { name: string; }) => {
+          this.pokemonSvc.getPokemonDetails(element.name).subscribe(
+            (result: any) => {
+              this.pokemons.push(result);
+            }
+          )
+        });
       },
       err => {
         console.log(err)
       }
 
     )
+  }
+
+  openPokemonDetails(name: string){
+    this.router.navigate([`/elementDetails/${name}`]);
   }
 
 }
