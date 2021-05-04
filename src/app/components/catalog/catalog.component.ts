@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -12,15 +13,21 @@ export class CatalogComponent implements OnInit {
 
   pokemons: any[] = [];
 
+  pokemonsTotal: string = '0';
+
+  pageEvent: PageEvent = new PageEvent;
+
   constructor(private pokemonSvc : PokemonsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getPokemonsList();
+    this.getPokemonsList(1);
   }
 
-  getPokemonsList(){
-    this.pokemonSvc.getPokemonsList().subscribe(
+  getPokemonsList(index: number){
+    this.pokemons = [];
+    this.pokemonSvc.getPokemonsList(index).subscribe(
       res => {
+        this.pokemonsTotal = res.count;
         res.results.forEach((element: { name: string; }) => {
           this.pokemonSvc.getPokemonDetails(element.name).subscribe(
             (result: any) => {
@@ -32,7 +39,6 @@ export class CatalogComponent implements OnInit {
       err => {
         console.log(err)
       }
-
     )
   }
 
@@ -40,4 +46,7 @@ export class CatalogComponent implements OnInit {
     this.router.navigate([`/elementDetails/${name}`]);
   }
 
+  onPageChange(event: PageEvent){
+    this.getPokemonsList(event.pageIndex)
+  }
 }

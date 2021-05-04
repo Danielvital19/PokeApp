@@ -8,8 +8,9 @@ export class PokemonsService {
 
   constructor(private http : HttpClient) { }
 
-  getPokemonsList(){
-    return this.http.get<any>('https://pokeapi.co/api/v2/pokemon' )
+  getPokemonsList(pageIndex: any){
+    var offset = pageIndex * 20;    
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`)
   }
 
   getPokemonDetails(name: string){
