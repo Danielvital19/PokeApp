@@ -1,0 +1,7 @@
+.searchPanel {
+    width: 200px;
+}
+.searchButton{
+    margin-right: 10px;
+    cursor: pointer;
+}

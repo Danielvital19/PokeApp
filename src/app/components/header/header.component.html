@@ -2,6 +2,9 @@
     <img src="https://pngimg.com/uploads/pokeball/pokeball_PNG24.png" width="35" height="35" (click)="home()">
     <span>PokeApp</span>
     <span class="example-spacer" style="flex: 1 1 auto;"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"></button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"></button>
+    <mat-form-field *ngIf="isSearching"  class="searchPanel">
+        <input matInput type="text" [(ngModel)]="valueSearch" (keydown.enter)="searchPokemon()">
+    </mat-form-field>
+    <mat-icon class="searchButton" (click)="isSearching=true">search</mat-icon>
+    <mat-icon>person</mat-icon>
 </mat-toolbar> 

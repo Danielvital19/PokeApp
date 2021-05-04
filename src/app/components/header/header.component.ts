@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  valueSearch: string = '';
+  isSearching: boolean = false;
+
   constructor(private router: Router ) { }
 
   ngOnInit(): void {
@@ -16,6 +19,10 @@ export class HeaderComponent implements OnInit {
 
   home(){
     this.router.navigate(['/']);
+  }
+
+  searchPokemon(){
+    this.router.navigate([`/home/${this.valueSearch}`]);
   }
 
 }

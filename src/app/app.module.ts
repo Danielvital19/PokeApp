@@ -9,10 +9,14 @@ import { environment } from '../environments/environment';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ElementDetailsComponent } from './components/element-details/element-details.component';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule } from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -31,10 +35,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    FormsModule,
     HttpClientModule,
     MatToolbarModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

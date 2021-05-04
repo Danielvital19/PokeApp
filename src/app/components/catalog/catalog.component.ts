@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 
 
@@ -17,10 +17,20 @@ export class CatalogComponent implements OnInit {
 
   pageEvent: PageEvent = new PageEvent;
 
-  constructor(private pokemonSvc : PokemonsService, private router: Router) { }
+  isSearching: boolean = false;
+
+
+  constructor(private pokemonSvc : PokemonsService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe(
+      params => {
+        console.log("asdas-"+params['pokemon'])
+        params['pokemon'] === undefined ? this.getPokemonsList(1) : this.searchPokemon(params['pokemon']);
+       }
+    )
+   }
 
   ngOnInit(): void {
-    this.getPokemonsList(1);
+    //this.getPokemonsList(1);
   }
 
   getPokemonsList(index: number){
@@ -38,6 +48,14 @@ export class CatalogComponent implements OnInit {
       },
       err => {
         console.log(err)
+      }
+    )
+  }
+
+  searchPokemon(pokemon: string){
+    this.pokemonSvc.getPokemonDetails(pokemon).subscribe(
+      (result: any) => {
+        this.pokemons.push(result);
       }
     )
   }

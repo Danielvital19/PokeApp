@@ -4,9 +4,9 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { ElementDetailsComponent } from './components/element-details/element-details.component';
 
 const routes: Routes = [
-  {path: '', component: CatalogComponent},
+  {path: 'home/:pokemon', component: CatalogComponent},
   {path: 'elementDetails/:name', component: ElementDetailsComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'home'}
+  {path: '', pathMatch: 'full', redirectTo: 'home/'}
 ];
 
 @NgModule({
