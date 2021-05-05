@@ -1,0 +1,53 @@
+.pokeCard{
+    border-radius: 40px;
+    background: #986e6e;
+    padding: 30px;
+    max-height: 141px !important;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e0e0e0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+
+.cardName{
+    text-align: center;
+    margin-top: -12px;
+    font-weight: 500;
+}
+
+.normal{
+    background-color: #7b77772e !important;
+    color: #5f5f5f;
+}
+
+.fire{
+    background-color: rgb(255 0 0 / 62%) !important;
+    color: white !important;
+}
+.water{
+    background-color: rgb(0 90 255 / 55%) !important;
+    color: white;}
+.grass{
+    background-color: rgb(79 162 79 / 82%) !important;
+    color: white;
+}
+.electric{
+    background-color: rgb(229 255 0 / 60%) !important;
+}
+.ice{
+    background-color: rgb(0 179 150) !important;
+    color: white;
+}
+.poison{
+    background-color: #cc05cc8c !important; 
+    color: white !important;
+}
+.fairy{
+    background: #ff8399 !important;
+    color: white;
+}
+.ground{
+    color: white;
+    background: #986e6e !important;
+}

@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ElementDetailsComponent } from './components/element-details/element-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 const routes: Routes = [
   {path: 'home/:pokemon', component: CatalogComponent},
   {path: 'elementDetails/:name', component: ElementDetailsComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '', pathMatch: 'full', redirectTo: '/home/'}
 ];
 

@@ -1,6 +1,6 @@
 <mat-toolbar style="background-color: #e5e5e5;">
     <img class="appImage" src="https://pngimg.com/uploads/pokeball/pokeball_PNG24.png" width="35" height="35" (click)="home()">
-    <span>PokeApp</span>
+    <span class="appTitle" (click)="home()" >PokeApp</span>
     <span class="example-spacer" style="flex: 1 1 auto;"></span>
     <mat-form-field *ngIf="isSearching"  class="searchPanel">
         <input matInput type="text" [(ngModel)]="valueSearch" (keydown.enter)="searchPokemon()">

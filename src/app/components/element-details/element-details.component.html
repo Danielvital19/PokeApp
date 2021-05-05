@@ -1,26 +1,24 @@
-<mat-card>
+<mat-icon class="backIcon" (click)="home()">arrow_back</mat-icon>
+<mat-card class="pokemonCard">
     <mat-card-header>
-        <mat-card-title>{{pokemon.name}}</mat-card-title>
-        <mat-card-subtitle>{{pokemon.types[0].type.name}}	</mat-card-subtitle>
-        <img mat-card-avatar [src]="pokemon.sprites.other.dream_world.front_default" >	
+        <mat-card-title>{{pokemon.name | titlecase }}</mat-card-title>
+        <mat-card-subtitle [ngClass]="[pokemon.types[0].type.name]" class="pokemonTypeLabel">{{pokemon.types[0].type.name | titlecase }}	</mat-card-subtitle>
+        <img class="pokemonAvatar" mat-card-avatar [src]="pokemon.sprites.other.dream_world.front_default" >	
+        <label class="experienceLabel">•{{pokemon.base_experience}}</label>
     </mat-card-header>
   <mat-card-content>
-    <div style="display: table;width: 100%;">
-        <span style="display: table-cell;">stat1</span>
-        <mat-progress-bar style="display: table-cell;" color="red" mode="determinate" value="40"></mat-progress-bar>
-        <span style="display: table-cell;">40%</span>
+    <h3 class="statsTitle">Statistics</h3>
+    <div *ngFor="let item of pokemon.stats">
+        <div class="statContainer">
+            <span class="statName"> {{item.stat.name | titlecase }}</span>
+            <mat-progress-bar style="display: table-cell;" color="primary" mode="determinate" [value]="item.base_stat"></mat-progress-bar>
+            <span class="statNumber" style="display: table-cell;">{{item.base_stat}}</span>
+        </div>
     </div>
     <br>
-    <div style="display: table;width: 100%;">
-        <span style="display: table-cell;">stat1</span>
-        <mat-progress-bar style="display: table-cell;" color="red" mode="determinate" value="40"></mat-progress-bar>
-        <span style="display: table-cell;">40%</span>
-    </div>
-    <br>
-    <div style="display: table;width: 100%;">
-        <span style="display: table-cell;">stat1</span>
-        <mat-progress-bar style="display: table-cell;" color="red" mode="determinate" value="40"></mat-progress-bar>
-        <span style="display: table-cell;">40%</span>
+    <div style="display: table;">
+        <label  class="statName">Abilities: </label> 
+        <div class="abilitieContainer" *ngFor="let item of pokemon.abilities">{{item.ability.name | titlecase}}</div>
     </div>
   </mat-card-content>
 </mat-card>

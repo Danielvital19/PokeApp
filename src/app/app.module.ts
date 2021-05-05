@@ -18,6 +18,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -27,7 +28,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AppComponent,
     CatalogComponent,
     HeaderComponent,
-    ElementDetailsComponent
+    ElementDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
