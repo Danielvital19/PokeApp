@@ -16,6 +16,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
 
 
 @NgModule({
@@ -41,7 +45,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatPaginatorModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

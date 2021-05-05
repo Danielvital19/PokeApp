@@ -22,7 +22,13 @@ export class HeaderComponent implements OnInit {
   }
 
   searchPokemon(){
-    this.router.navigate([`/home/${this.valueSearch}`]);
+    console.log(this.valueSearch)
+    this.valueSearch !== '' ? this.router.navigate([`/home/${this.valueSearch}`]) : this.home();
+  }
+
+  profile(){
+    this.router.navigate(['/']);
+
   }
 
 }

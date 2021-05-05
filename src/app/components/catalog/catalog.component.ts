@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,12 +20,10 @@ export class CatalogComponent implements OnInit {
 
   isSearching: boolean = false;
 
-
-  constructor(private pokemonSvc : PokemonsService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private pokemonSvc : PokemonsService, private router: Router, private activatedRoute: ActivatedRoute, private _snackBar: MatSnackBar) {
     this.activatedRoute.params.subscribe(
       params => {
-        console.log("asdas-"+params['pokemon'])
-        params['pokemon'] === undefined ? this.getPokemonsList(1) : this.searchPokemon(params['pokemon']);
+        params['pokemon'] === '' ? this.getPokemonsList(1) : this.searchPokemon(params['pokemon']);
        }
     )
    }
@@ -53,9 +52,12 @@ export class CatalogComponent implements OnInit {
   }
 
   searchPokemon(pokemon: string){
+    this.pokemons = [];
     this.pokemonSvc.getPokemonDetails(pokemon).subscribe(
       (result: any) => {
         this.pokemons.push(result);
+      },(error: any) => {
+        this._snackBar.open(`pokemon not found`, "ok");
       }
     )
   }

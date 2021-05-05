@@ -9,6 +9,8 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
 })
 export class ElementDetailsComponent implements OnInit {
 
+  pokemon: any;
+
   constructor(private pokemonSvc: PokemonsService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(
       params => {
@@ -24,6 +26,7 @@ export class ElementDetailsComponent implements OnInit {
     this.pokemonSvc.getPokemonDetails(name).subscribe(
       (result: any) => {
         console.log(result)
+        this.pokemon = result;
       },
       (error: any) => {}
     )

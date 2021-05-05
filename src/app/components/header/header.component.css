@@ -1,3 +1,11 @@
+.appImage{
+    cursor:pointer;
+}
+
+.profileIcon{
+    cursor: pointer;
+}
+
 .searchPanel {
     width: 200px;
 }

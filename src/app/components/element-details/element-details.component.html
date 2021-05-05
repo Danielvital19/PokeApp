@@ -1,1 +1,26 @@
-<p>element-details works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{pokemon.name}}</mat-card-title>
+        <mat-card-subtitle>{{pokemon.types[0].type.name}}	</mat-card-subtitle>
+        <img mat-card-avatar [src]="pokemon.sprites.other.dream_world.front_default" >	
+    </mat-card-header>
+  <mat-card-content>
+    <div style="display: table;width: 100%;">
+        <span style="display: table-cell;">stat1</span>
+        <mat-progress-bar style="display: table-cell;" color="red" mode="determinate" value="40"></mat-progress-bar>
+        <span style="display: table-cell;">40%</span>
+    </div>
+    <br>
+    <div style="display: table;width: 100%;">
+        <span style="display: table-cell;">stat1</span>
+        <mat-progress-bar style="display: table-cell;" color="red" mode="determinate" value="40"></mat-progress-bar>
+        <span style="display: table-cell;">40%</span>
+    </div>
+    <br>
+    <div style="display: table;width: 100%;">
+        <span style="display: table-cell;">stat1</span>
+        <mat-progress-bar style="display: table-cell;" color="red" mode="determinate" value="40"></mat-progress-bar>
+        <span style="display: table-cell;">40%</span>
+    </div>
+  </mat-card-content>
+</mat-card>
