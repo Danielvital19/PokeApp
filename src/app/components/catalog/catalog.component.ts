@@ -3,6 +3,13 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+import { Pokemon } from 'src/app/store/pokemon.model';
+import {select, Store} from '@ngrx/store'
+import {selectPokemons} from '../../store/selector/Pokemon';
+import { PokemonState} from '../../store/pokemon.reducer';
+import { addPokemon } from 'src/app/store/pokemons.actions';
+
 
 
 @Component({
@@ -13,23 +20,30 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CatalogComponent implements OnInit {
 
   pokemons: any[] = [];
-
   pokemonsTotal: string = '0';
-
   pageEvent: PageEvent = new PageEvent;
-
   isSearching: boolean = false;
+  pokemons$: Observable<Array<Pokemon>>;
 
-  constructor(private pokemonSvc : PokemonsService, private router: Router, private activatedRoute: ActivatedRoute, private _snackBar: MatSnackBar) {
-    this.activatedRoute.params.subscribe(
-      params => {
-        params['pokemon'] === '' ? this.getPokemonsList(1) : this.searchPokemon(params['pokemon']);
-       }
-    )
+
+  constructor(
+    private pokemonSvc : PokemonsService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute, 
+    private _snackBar: MatSnackBar,     
+    private store: Store<PokemonState>
+    ) {
+      this.activatedRoute.params.subscribe(
+        params => {
+          params['pokemon'] === '' ? this.getPokemonsList(1) : this.searchPokemon(params['pokemon']);
+        }
+      )
+      this.pokemons$ = this.store.pipe(select(selectPokemons));
+      console.log(this.pokemons$)
    }
 
   ngOnInit(): void {
-    //this.getPokemonsList(1);
+
   }
 
   getPokemonsList(index: number){
@@ -41,6 +55,7 @@ export class CatalogComponent implements OnInit {
           this.pokemonSvc.getPokemonDetails(element.name).subscribe(
             (result: any) => {
               this.pokemons.push(result);
+              this.store.dispatch(addPokemon(result));
             }
           )
         });

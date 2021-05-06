@@ -20,9 +20,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StoreModule } from '@ngrx/store';
-import { addPokemonReducer } from './store/pokemon.reducer';
-
-
+import { reducers } from '../reducers/index'
 
 
 @NgModule({
@@ -52,7 +50,7 @@ import { addPokemonReducer } from './store/pokemon.reducer';
     MatIconModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    StoreModule.forRoot({pokemons: addPokemonReducer}),
+    StoreModule.forRoot(reducers),
 
   ],
   providers: [],

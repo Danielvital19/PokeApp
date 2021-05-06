@@ -1,40 +1,31 @@
-import { AppState } from './../app.state';
-import { Pokemon } from './pokemon.model';
-import * as pokemonActions from './pokemons.actions';
 
-export enum ACTIONS {
-    POKEDEX_BATCH = '[POKEMON LIST] add pokemons',
-    POKEMON_LOAD = '[POKEMON LIST] load pokemons',
-    POKEMON_SEARCH = '[POKEMON LIST] search pokemons'
-  }
 
-export const initialState = {
-  pokemons: [],
-  filteredPokemons: [],
+import {Action, createReducer, on} from '@ngrx/store';
+import * as PokemonActions from '../store/pokemons.actions';
+import {Pokemon} from '../store/pokemon.model';
+
+export const customerFeatureKey = 'customer';
+
+
+export interface PokemonState {
+  pokemons: Pokemon[];
+}
+
+
+export const initialState: PokemonState = {
+  pokemons: []
 };
 
-export function pokemonsReducer(
-  state: AppState = initialState,
-  action: pokemonActions.AddPokemonBatch
-) {
-  switch (action.type) {
-    case ACTIONS.POKEDEX_BATCH:
-      const appendData = [...state.pokemons, ...action.payload];
+export const pokemonReducer = createReducer(
+  initialState,
+  on(PokemonActions.addPokemon,
+    (state: PokemonState, {pokemon}) =>
+      ({...state,
+        pokemons: [...state.pokemons, pokemon]
+      }))
+);
 
-      return {
-        ...state,
-        pokemons: appendData,
-        filteredPokemons: appendData,
-      };
-    case ACTIONS.POKEMON_LOAD:
-      const newList = [...action.payload];
 
-      return {
-        ...state,
-        pokemons: newList,
-        filteredPokemons: newList,
-      };
-    default:
-      return state;
-  }
+export function reducer(state: PokemonState | undefined, action: Action): any {
+  return pokemonReducer(state, action);
 }
