@@ -1,17 +1,14 @@
-<div style="display:flex; flex-wrap:wrap;padding: 5% 3% 5%;">
-    <div *ngFor="let pokemon of pokemons" style="width:33%;min-width: 170px;" >
+<h1 class="title">Pokedex</h1>
+<div class="catalogContainer">
+    <div *ngFor="let pokemon of pokemons" class="cardContainer">
         <div style="padding: 10%;">
             <mat-card (click)= 'openPokemonDetails(pokemon.name)' [ngClass]="[pokemon.types[0].type.name]" class="pokeCard">
                 <img mat-card-image [src]="pokemon.sprites.other.dream_world.front_default" width="40" height="70">
                 <h2 class="cardName">{{pokemon.name | titlecase}}</h2>
-                <div><label>{{pokemon.types[0].type.name | titlecase}}</label></div>
-                <h5 class="cardName">{{pokemon.types[0].type.name | titlecase}}</h5>
+                <h5 class="cardType">{{pokemon.types[0].type.name | titlecase}}</h5>
             </mat-card>
         </div>
     </div>
 </div>
 
-<mat-paginator [length]="pokemonsTotal"
-              [pageSize]="20"
-              (page)="onPageChange($event)">
-</mat-paginator>
+<mat-paginator [length]="pokemonsTotal" [pageSize]="20"(page)="onPageChange($event)"></mat-paginator>
