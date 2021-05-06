@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1620259048974,
+  "timestamp": 1620261901772,
   "index": "https://danielvital19.github.io/PokeApp/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://danielvital19.github.io/PokeApp/favicon.ico",
         "https://danielvital19.github.io/PokeApp/index.html",
-        "https://danielvital19.github.io/PokeApp/main.46c646fc1b21a33ddbc4.js",
+        "https://danielvital19.github.io/PokeApp/main.51ef251e2c0508ba9acd.js",
         "https://danielvital19.github.io/PokeApp/manifest.webmanifest",
         "https://danielvital19.github.io/PokeApp/polyfills.00096ed7d93ed26ee6df.js",
         "https://danielvital19.github.io/PokeApp/runtime.7b63b9fd40098a2e8207.js",
@@ -52,8 +52,8 @@
     "https://danielvital19.github.io/PokeApp/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://danielvital19.github.io/PokeApp/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://danielvital19.github.io/PokeApp/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://danielvital19.github.io/PokeApp/index.html": "17eb3a94c77e73a38c7ac6658ca786b04e8e470f",
-    "https://danielvital19.github.io/PokeApp/main.46c646fc1b21a33ddbc4.js": "2caf345e2426d82f4d45b7698a00315e5122c17b",
+    "https://danielvital19.github.io/PokeApp/index.html": "434de2de857a7c38da096543f72fa41e4c294bd0",
+    "https://danielvital19.github.io/PokeApp/main.51ef251e2c0508ba9acd.js": "d4e6ae97e1bf520154e9719ed8812f8ece90561f",
     "https://danielvital19.github.io/PokeApp/manifest.webmanifest": "5938f6b7130bb0f21f3f6d488e2e6112c361933e",
     "https://danielvital19.github.io/PokeApp/polyfills.00096ed7d93ed26ee6df.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
     "https://danielvital19.github.io/PokeApp/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
