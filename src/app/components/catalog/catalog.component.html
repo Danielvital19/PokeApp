@@ -4,7 +4,6 @@
             <mat-card (click)= 'openPokemonDetails(pokemon.name)' [ngClass]="[pokemon.types[0].type.name]" class="pokeCard">
                 <img mat-card-image [src]="pokemon.sprites.other.dream_world.front_default" width="40" height="70">
                 <h2 class="cardName">{{pokemon.name | titlecase}}</h2>
-                <div><label>{{pokemon.types[0].type.name | titlecase}}</label></div>
                 <h5 class="cardName">{{pokemon.types[0].type.name | titlecase}}</h5>
             </mat-card>
         </div>
