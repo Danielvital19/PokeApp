@@ -21,6 +21,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../reducers/index'
+import { customerFeatureKey,reducer } from './store/pokemon.reducer';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { reducers } from '../reducers/index'
     MatSnackBarModule,
     MatProgressBarModule,
     StoreModule.forRoot(reducers),
-
+    StoreModule.forFeature(customerFeatureKey, reducer),
   ],
   providers: [],
   bootstrap: [AppComponent]

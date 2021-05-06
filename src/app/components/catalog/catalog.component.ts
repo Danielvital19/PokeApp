@@ -39,11 +39,10 @@ export class CatalogComponent implements OnInit {
         }
       )
       this.pokemons$ = this.store.pipe(select(selectPokemons));
-      console.log(this.pokemons$)
    }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
   }
 
   getPokemonsList(index: number){

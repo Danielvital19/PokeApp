@@ -1,6 +1,6 @@
 <h1 class="title">Pokedex</h1>
 <div class="catalogContainer">
-    <div *ngFor="let pokemon of pokemons" class="cardContainer">
+    <div *ngFor="let pokemon of pokemons$ | async" class="cardContainer">
         <div style="padding: 10%;">
             <mat-card (click)= 'openPokemonDetails(pokemon.name)' [ngClass]="[pokemon.types[0].type.name]" class="pokeCard">
                 <img mat-card-image [src]="pokemon.sprites.other.dream_world.front_default" width="40" height="70">
@@ -10,4 +10,5 @@
         </div>
     </div>
 </div>
+<label></label>
 <mat-paginator [length]="pokemonsTotal" [pageSize]="20"(page)="onPageChange($event)"></mat-paginator>

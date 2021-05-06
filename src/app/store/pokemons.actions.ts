@@ -5,3 +5,8 @@ export const addPokemon = createAction(
   '[Customer] Add Customer',
   (pokemon: Pokemon) => ({pokemon})
 );
+
+export const resetPokemons = createAction(
+  '[Customer] Add Customer',
+  (pokemon: Pokemon) => ({pokemon})
+);
